@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "moslabsstairs:sand_layer",
+    "moslabsstairs:dirt_layer",
+    "moslabsstairs:gravel_layer",
+    "moslabsstairs:coarse_dirt_layer",
+    "moslabsstairs:moss_block_layer"
+  ]
+}

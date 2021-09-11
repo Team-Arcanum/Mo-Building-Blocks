@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "layers=1": {
+      "model": "moslabsstairs:block/sand_layer"
+    },
+    "layers=2": {
+      "model": "moslabsstairs:block/sand_layer2"
+    },
+    "layers=3": {
+      "model": "moslabsstairs:block/sand_layer3"
+    },
+    "layers=4": {
+      "model": "moslabsstairs:block/sand_layer4"
+    },
+    "layers=5": {
+      "model": "moslabsstairs:block/sand_layer5"
+    },
+    "layers=6": {
+      "model": "moslabsstairs:block/sand_layer6"
+    },
+    "layers=7": {
+      "model": "moslabsstairs:block/sand_layer7"
+    },
+    "layers=8": {
+      "model": "moslabsstairs:block/sand_layer8"
+    }
+  }
+}
