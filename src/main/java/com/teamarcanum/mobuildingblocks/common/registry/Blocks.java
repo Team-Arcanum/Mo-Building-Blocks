@@ -1,10 +1,7 @@
 package com.teamarcanum.mobuildingblocks.common.registry;
 
 import com.teamarcanum.mobuildingblocks.MoBuildingBlocks;
-import com.teamarcanum.mobuildingblocks.common.block.LayerBlock;
-import com.teamarcanum.mobuildingblocks.common.block.SlabBlock;
-import com.teamarcanum.mobuildingblocks.common.block.StairBlock;
-import com.teamarcanum.mobuildingblocks.common.block.WallBlock;
+import com.teamarcanum.mobuildingblocks.common.block.*;
 import com.teamarcanum.mobuildingblocks.data.BlockLoot;
 import com.teamarcanum.mobuildingblocks.data.StandardRecipeProvider;
 import com.teamarcanum.mobuildingblocks.data.StonecutterRecipeProvider;
@@ -29,77 +26,92 @@ public class Blocks {
         public final RegistryObject<Block> stairs;
         public final RegistryObject<Block> slab;
         public final RegistryObject<Block> wall;
+        public final RegistryObject<Block> column;
 
-        public MultiRegistryObject(Block _source, RegistryObject<Block> _stairs, RegistryObject<Block> _slab, RegistryObject<Block> _wall) {
+        public MultiRegistryObject(Block _source, RegistryObject<Block> _stairs, RegistryObject<Block> _slab, RegistryObject<Block> _wall, RegistryObject<Block> _column) {
 
             this.source = _source;
             this.stairs = _stairs;
             this.slab = _slab;
             this.wall = _wall;
+            this.column = _column;
         }
 
         public void registerTags(TagsProvider.TagAppender<Block> _stairsTag, TagsProvider.TagAppender<Block> _wallTag) {
 
-            if(stairs != null)
-                _stairsTag.add(stairs.get());
+            if(this.stairs != null)
+                _stairsTag.add(this.stairs.get());
 
-            if(wall != null)
-                _wallTag.add(wall.get());
+            if(this.wall != null)
+                _wallTag.add(this.wall.get());
         }
 
         public void registerHarvestTags(TagsProvider.TagAppender<Block> _toolType, TagsProvider.TagAppender<Block> _harvestLevel) {
 
-            if(stairs != null) {
-                _toolType.add(stairs.get());
-                _harvestLevel.add(stairs.get());
+            if(this.stairs != null) {
+                _toolType.add(this.stairs.get());
+                _harvestLevel.add(this.stairs.get());
             }
 
-            if(wall != null) {
-                _toolType.add(wall.get());
-                _harvestLevel.add(wall.get());
+            if(this.wall != null) {
+                _toolType.add(this.wall.get());
+                _harvestLevel.add(this.wall.get());
             }
 
-            if(slab != null) {
-                _toolType.add(slab.get());
-                _harvestLevel.add(slab.get());
+            if(this.slab != null) {
+                _toolType.add(this.slab.get());
+                _harvestLevel.add(this.slab.get());
             }
 
+            if(this.column != null) {
+                _toolType.add(this.column.get());
+                _harvestLevel.add(this.column.get());
+            }
         }
 
         public void registerStonecutterRecipes(Consumer<FinishedRecipe> _recipeConsumer) {
 
-            if(stairs != null)
-                StonecutterRecipeProvider.stonecutterRecipe(_recipeConsumer, stairs.get(), source);
+            if(this.stairs != null)
+                StonecutterRecipeProvider.stonecutterRecipe(_recipeConsumer, this.stairs.get(), this.source);
 
-            if(slab != null)
-                StonecutterRecipeProvider.stonecutterRecipe(_recipeConsumer, slab.get(), source, 2);
+            if(this.slab != null)
+                StonecutterRecipeProvider.stonecutterRecipe(_recipeConsumer, this.slab.get(), this.source, 2);
 
-            if(wall != null)
-                StonecutterRecipeProvider.stonecutterRecipe(_recipeConsumer, wall.get(), source);
+            if(this.wall != null)
+                StonecutterRecipeProvider.stonecutterRecipe(_recipeConsumer, this.wall.get(), this.source);
+
+            if(this.column != null)
+                StonecutterRecipeProvider.stonecutterRecipe(_recipeConsumer, this.column.get(), this.source);
         }
 
         public void registerShapedRecipes(Consumer<FinishedRecipe> _recipeConsumer) {
 
-            if(stairs != null)
-                StandardRecipeProvider.stairsRecipe(_recipeConsumer, stairs.get(), source);
+            if(this.stairs != null)
+                StandardRecipeProvider.stairsRecipe(_recipeConsumer, this.stairs.get(), this.source);
 
-            if(slab != null)
-                StandardRecipeProvider.slabRecipe(_recipeConsumer, slab.get(), source);
+            if(this.slab != null)
+                StandardRecipeProvider.slabRecipe(_recipeConsumer, this.slab.get(), this.source);
 
-            if(wall != null)
-                StandardRecipeProvider.wallRecipe(_recipeConsumer, wall.get(), source);
+            if(this.wall != null)
+                StandardRecipeProvider.wallRecipe(_recipeConsumer, this.wall.get(), this.source);
+
+            if(this.column != null)
+                StandardRecipeProvider.columnRecipe(_recipeConsumer, this.column.get(), this.source);
         }
 
         public void registerBlockDrops(BlockLoot _blockLoot) {
 
-            if(stairs != null)
-                _blockLoot.dropSelf(stairs.get());
+            if(this.stairs != null)
+                _blockLoot.dropSelf(this.stairs.get());
 
-            if(slab != null)
-                _blockLoot.dropSelf(slab.get());
+            if(this.slab != null)
+                _blockLoot.dropSelf(this.slab.get());
 
-            if(wall != null)
-                _blockLoot.dropSelf(wall.get());
+            if(this.wall != null)
+                _blockLoot.dropSelf(this.wall.get());
+
+            if(this.column != null)
+                _blockLoot.dropSelf(this.column.get());
         }
     }
 
@@ -113,7 +125,7 @@ public class Blocks {
     public static final MultiRegistryObject GILDED_BLACKSTONE = registerObject("gilded_blackstone", net.minecraft.world.level.block.Blocks.GILDED_BLACKSTONE);
     public static final MultiRegistryObject TUFF = registerObject("tuff", net.minecraft.world.level.block.Blocks.TUFF);
     public static final MultiRegistryObject SMOOTH_BASALT = registerObject("smooth_basalt", net.minecraft.world.level.block.Blocks.SMOOTH_BASALT);
-    public static final MultiRegistryObject SMOOTH_STONE = registerObject("smooth_stone", net.minecraft.world.level.block.Blocks.SMOOTH_STONE, true, false, true);
+    public static final MultiRegistryObject SMOOTH_STONE = registerObject("smooth_stone", net.minecraft.world.level.block.Blocks.SMOOTH_STONE, true, false, true, true);
 
     public static final MultiRegistryObject WHITE_CONCRETE = registerObject("white_concrete", net.minecraft.world.level.block.Blocks.WHITE_CONCRETE);
     public static final MultiRegistryObject ORANGE_CONCRETE = registerObject("orange_concrete", net.minecraft.world.level.block.Blocks.ORANGE_CONCRETE);
@@ -165,14 +177,15 @@ public class Blocks {
 
     private static MultiRegistryObject registerObject(String _name, Block _block) {
 
-        return registerObject(_name, _block, true, true, true);
+        return registerObject(_name, _block, true, true, true, true);
     }
 
-    private static MultiRegistryObject registerObject(String _name, Block _block, boolean _stairs, boolean _slab, boolean _wall) {
+    private static MultiRegistryObject registerObject(String _name, Block _block, boolean _stairs, boolean _slab, boolean _wall, boolean _column) {
 
         RegistryObject<Block> stairs = null;
         RegistryObject<Block> slab = null;
         RegistryObject<Block> wall = null;
+        RegistryObject<Block> column = null;
 
         if(_stairs)
             stairs = BLOCKS.register(_name + "_stairs", () -> new StairBlock(_block));
@@ -183,7 +196,10 @@ public class Blocks {
         if(_wall)
             wall = BLOCKS.register(_name + "_wall", () -> new WallBlock(_block));
 
-        MultiRegistryObject multiRegistryObject = new MultiRegistryObject(_block, stairs, slab, wall);
+        if(_column)
+            column = BLOCKS.register(_name + "_column", () -> new ColumnBlock(_block));
+
+        MultiRegistryObject multiRegistryObject = new MultiRegistryObject(_block, stairs, slab, wall, column);
         MULTI_REGISTRY_OBJECTS.add(multiRegistryObject);
 
         return multiRegistryObject;

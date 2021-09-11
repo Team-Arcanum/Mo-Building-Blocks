@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "mobuildingblocks:block/yellow_concrete_column"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "mobuildingblocks:cyan_terracotta_column"
+    ]
+  },
+  "criteria": {
+    "has_cyan_terracotta": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:cyan_terracotta"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "mobuildingblocks:cyan_terracotta_column"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_cyan_terracotta",
+      "has_the_recipe"
+    ]
+  ]
+}

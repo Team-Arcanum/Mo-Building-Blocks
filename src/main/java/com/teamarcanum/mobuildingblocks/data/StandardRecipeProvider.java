@@ -61,4 +61,14 @@ public class StandardRecipeProvider extends RecipeProvider {
         ShapedRecipeBuilder.shaped(_output, 6).define('#', _input).pattern("###").pattern("###")
                 .unlockedBy(RegistryNameUtils.getHasName(_input), has(_input)).save(_recipeConsumer);
     }
+
+    public static void columnRecipe(Consumer<FinishedRecipe> _recipeConsumer, ItemLike _output, Tag<Item> _input) {
+        ShapedRecipeBuilder.shaped(_output, 3).define('#', _input).pattern("#").pattern("#").pattern("#")
+                .unlockedBy(RegistryNameUtils.getHasName(_input), has(_input)).save(_recipeConsumer);
+    }
+
+    public static void columnRecipe(Consumer<FinishedRecipe> _recipeConsumer, ItemLike _output, ItemLike _input) {
+        ShapedRecipeBuilder.shaped(_output, 3).define('#', _input).pattern("#").pattern("#").pattern("#")
+                .unlockedBy(RegistryNameUtils.getHasName(_input), has(_input)).save(_recipeConsumer);
+    }
 }

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:lime_concrete"
+    }
+  },
+  "result": {
+    "item": "mobuildingblocks:lime_concrete_column",
+    "count": 3
+  }
+}
