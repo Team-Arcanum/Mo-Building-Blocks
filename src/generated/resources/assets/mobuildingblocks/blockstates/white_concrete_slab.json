@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "mobuildingblocks:block/white_concrete_slab_top"
+    },
+    "type=bottom": {
+      "model": "mobuildingblocks:block/white_concrete_slab"
+    },
+    "type=double": {
+      "model": "minecraft:block/white_concrete"
+    }
+  }
+}

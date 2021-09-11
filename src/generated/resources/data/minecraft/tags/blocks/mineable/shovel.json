@@ -1,10 +1,10 @@
 {
   "replace": false,
   "values": [
-    "moslabsstairs:sand_layer",
-    "moslabsstairs:dirt_layer",
-    "moslabsstairs:gravel_layer",
-    "moslabsstairs:coarse_dirt_layer",
-    "moslabsstairs:moss_block_layer"
+    "mobuildingblocks:sand_layer",
+    "mobuildingblocks:dirt_layer",
+    "mobuildingblocks:gravel_layer",
+    "mobuildingblocks:coarse_dirt_layer",
+    "mobuildingblocks:moss_block_layer"
   ]
 }
