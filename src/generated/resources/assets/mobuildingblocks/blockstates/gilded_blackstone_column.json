@@ -1,7 +1,22 @@
 {
   "variants": {
-    "": {
-      "model": "mobuildingblocks:block/gilded_blackstone_column"
+    "column_state=top,waterlogged=false": {
+      "model": "mobuildingblocks:block/gilded_blackstone_column_top"
+    },
+    "column_state=center,waterlogged=false": {
+      "model": "mobuildingblocks:block/gilded_blackstone_column_center"
+    },
+    "column_state=bottom,waterlogged=false": {
+      "model": "mobuildingblocks:block/gilded_blackstone_column_bottom"
+    },
+    "column_state=top,waterlogged=true": {
+      "model": "mobuildingblocks:block/gilded_blackstone_column_top"
+    },
+    "column_state=center,waterlogged=true": {
+      "model": "mobuildingblocks:block/gilded_blackstone_column_center"
+    },
+    "column_state=bottom,waterlogged=true": {
+      "model": "mobuildingblocks:block/gilded_blackstone_column_bottom"
     }
   }
 }

@@ -3,21 +3,30 @@ package com.teamarcanum.mobuildingblocks.common.block;
 import com.teamarcanum.mobuildingblocks.data.BlockStateProvider;
 import com.teamarcanum.mobuildingblocks.data.IBlockDataContainer;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.Tag;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.client.model.generators.ModelFile;
 
 import java.util.Objects;
 
-public class WallBlock extends net.minecraft.world.level.block.WallBlock implements IBlockDataContainer {
+public class WallBlock extends net.minecraft.world.level.block.WallBlock implements IBlockDataContainer, ITagHolder<Block> {
 
     private final Block source;
+    private final Tag.Named<Block>[] tags;
 
-    public WallBlock(Block _block) {
+    public WallBlock(Block _block, Tag.Named<Block>[] _tags) {
 
         super(BlockBehaviour.Properties.copy(_block));
 
         this.source = _block;
+        this.tags = _tags;
+    }
+
+    @Override
+    public Tag.Named<Block>[] tags() {
+
+        return this.tags;
     }
 
     @Override

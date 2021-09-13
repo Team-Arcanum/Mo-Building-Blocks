@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "mobuildingblocks:oak_planks_wall",
+    "mobuildingblocks:oak_planks_column",
+    "mobuildingblocks:birch_planks_wall",
+    "mobuildingblocks:birch_planks_column",
+    "mobuildingblocks:spruce_planks_wall",
+    "mobuildingblocks:spruce_planks_column",
+    "mobuildingblocks:jungle_planks_wall",
+    "mobuildingblocks:jungle_planks_column",
+    "mobuildingblocks:dark_oak_planks_wall",
+    "mobuildingblocks:dark_oak_planks_column",
+    "mobuildingblocks:acacia_planks_wall",
+    "mobuildingblocks:acacia_planks_column"
+  ]
+}

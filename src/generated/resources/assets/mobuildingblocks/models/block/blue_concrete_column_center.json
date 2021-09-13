@@ -1,0 +1,7 @@
+{
+  "parent": "mobuildingblocks:block/column",
+  "textures": {
+    "texture": "minecraft:block/blue_concrete",
+    "particle": "minecraft:block/blue_concrete"
+  }
+}

@@ -4,7 +4,6 @@
     "mobuildingblocks:sand_layer",
     "mobuildingblocks:dirt_layer",
     "mobuildingblocks:gravel_layer",
-    "mobuildingblocks:coarse_dirt_layer",
-    "mobuildingblocks:moss_block_layer"
+    "mobuildingblocks:coarse_dirt_layer"
   ]
 }

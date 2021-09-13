@@ -1,7 +1,6 @@
 {
-  "parent": "minecraft:block/snow_height2",
+  "parent": "mobuildingblocks:block/layer1",
   "textures": {
-    "texture": "minecraft:block/gravel",
-    "particle": "minecraft:block/gravel"
+    "all": "minecraft:block/gravel"
   }
 }

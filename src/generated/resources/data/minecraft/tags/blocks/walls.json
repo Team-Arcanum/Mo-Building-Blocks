@@ -39,6 +39,12 @@
     "mobuildingblocks:brown_terracotta_wall",
     "mobuildingblocks:green_terracotta_wall",
     "mobuildingblocks:red_terracotta_wall",
-    "mobuildingblocks:black_terracotta_wall"
+    "mobuildingblocks:black_terracotta_wall",
+    "mobuildingblocks:oak_planks_wall",
+    "mobuildingblocks:birch_planks_wall",
+    "mobuildingblocks:spruce_planks_wall",
+    "mobuildingblocks:jungle_planks_wall",
+    "mobuildingblocks:dark_oak_planks_wall",
+    "mobuildingblocks:acacia_planks_wall"
   ]
 }

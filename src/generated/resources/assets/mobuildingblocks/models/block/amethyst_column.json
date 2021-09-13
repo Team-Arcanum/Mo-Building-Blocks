@@ -1,7 +1,0 @@
-{
-  "parent": "mobuildingblocks:block/column",
-  "textures": {
-    "1": "minecraft:block/amethyst_block",
-    "particle": "minecraft:block/amethyst_block"
-  }
-}

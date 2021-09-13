@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "mobuildingblocks:block/layer8",
   "textures": {
     "all": "minecraft:block/sand"
   }

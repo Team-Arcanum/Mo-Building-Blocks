@@ -1,0 +1,6 @@
+{
+  "parent": "mobuildingblocks:block/layer3",
+  "textures": {
+    "all": "minecraft:block/acacia_leaves"
+  }
+}

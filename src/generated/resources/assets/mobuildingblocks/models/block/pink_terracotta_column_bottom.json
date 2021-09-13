@@ -1,0 +1,7 @@
+{
+  "parent": "mobuildingblocks:block/column_bottom",
+  "textures": {
+    "texture": "minecraft:block/pink_terracotta",
+    "particle": "minecraft:block/pink_terracotta"
+  }
+}

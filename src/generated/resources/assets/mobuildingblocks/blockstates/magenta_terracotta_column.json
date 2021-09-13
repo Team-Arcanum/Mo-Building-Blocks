@@ -1,7 +1,22 @@
 {
   "variants": {
-    "": {
-      "model": "mobuildingblocks:block/magenta_terracotta_column"
+    "column_state=top,waterlogged=false": {
+      "model": "mobuildingblocks:block/magenta_terracotta_column_top"
+    },
+    "column_state=center,waterlogged=false": {
+      "model": "mobuildingblocks:block/magenta_terracotta_column_center"
+    },
+    "column_state=bottom,waterlogged=false": {
+      "model": "mobuildingblocks:block/magenta_terracotta_column_bottom"
+    },
+    "column_state=top,waterlogged=true": {
+      "model": "mobuildingblocks:block/magenta_terracotta_column_top"
+    },
+    "column_state=center,waterlogged=true": {
+      "model": "mobuildingblocks:block/magenta_terracotta_column_center"
+    },
+    "column_state=bottom,waterlogged=true": {
+      "model": "mobuildingblocks:block/magenta_terracotta_column_bottom"
     }
   }
 }

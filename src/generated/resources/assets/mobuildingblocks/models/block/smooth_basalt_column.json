@@ -1,7 +1,0 @@
-{
-  "parent": "mobuildingblocks:block/column",
-  "textures": {
-    "1": "minecraft:block/smooth_basalt",
-    "particle": "minecraft:block/smooth_basalt"
-  }
-}

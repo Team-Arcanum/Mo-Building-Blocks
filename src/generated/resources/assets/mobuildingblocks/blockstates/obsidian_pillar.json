@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "column_state=top,waterlogged=false": {
+      "model": "mobuildingblocks:block/obsidian_pillar_top"
+    },
+    "column_state=center,waterlogged=false": {
+      "model": "mobuildingblocks:block/obsidian_pillar_center"
+    },
+    "column_state=bottom,waterlogged=false": {
+      "model": "mobuildingblocks:block/obsidian_pillar_bottom"
+    },
+    "column_state=top,waterlogged=true": {
+      "model": "mobuildingblocks:block/obsidian_pillar_top"
+    },
+    "column_state=center,waterlogged=true": {
+      "model": "mobuildingblocks:block/obsidian_pillar_center"
+    },
+    "column_state=bottom,waterlogged=true": {
+      "model": "mobuildingblocks:block/obsidian_pillar_bottom"
+    }
+  }
+}

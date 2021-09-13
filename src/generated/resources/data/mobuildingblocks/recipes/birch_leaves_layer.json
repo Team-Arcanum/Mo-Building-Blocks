@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:birch_leaves"
+    }
+  ],
+  "result": {
+    "item": "mobuildingblocks:birch_leaves_layer",
+    "count": 8
+  }
+}

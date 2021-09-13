@@ -1,0 +1,6 @@
+{
+  "parent": "mobuildingblocks:block/layer7",
+  "textures": {
+    "all": "minecraft:block/oak_leaves"
+  }
+}

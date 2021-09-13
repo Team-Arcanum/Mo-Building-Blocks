@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "mobuildingblocks:moss_block_layer",
+    "mobuildingblocks:oak_leaves_layer",
+    "mobuildingblocks:birch_leaves_layer",
+    "mobuildingblocks:spruce_leaves_layer",
+    "mobuildingblocks:jungle_leaves_layer",
+    "mobuildingblocks:dark_oak_leaves_layer",
+    "mobuildingblocks:acacia_leaves_layer"
+  ]
+}

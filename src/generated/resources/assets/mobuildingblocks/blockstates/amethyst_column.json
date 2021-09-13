@@ -1,7 +1,22 @@
 {
   "variants": {
-    "": {
-      "model": "mobuildingblocks:block/amethyst_column"
+    "column_state=top,waterlogged=false": {
+      "model": "mobuildingblocks:block/amethyst_column_top"
+    },
+    "column_state=center,waterlogged=false": {
+      "model": "mobuildingblocks:block/amethyst_column_center"
+    },
+    "column_state=bottom,waterlogged=false": {
+      "model": "mobuildingblocks:block/amethyst_column_bottom"
+    },
+    "column_state=top,waterlogged=true": {
+      "model": "mobuildingblocks:block/amethyst_column_top"
+    },
+    "column_state=center,waterlogged=true": {
+      "model": "mobuildingblocks:block/amethyst_column_center"
+    },
+    "column_state=bottom,waterlogged=true": {
+      "model": "mobuildingblocks:block/amethyst_column_bottom"
     }
   }
 }

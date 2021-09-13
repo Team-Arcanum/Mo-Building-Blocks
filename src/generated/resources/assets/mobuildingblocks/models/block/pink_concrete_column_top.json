@@ -1,0 +1,7 @@
+{
+  "parent": "mobuildingblocks:block/column_top",
+  "textures": {
+    "texture": "minecraft:block/pink_concrete",
+    "particle": "minecraft:block/pink_concrete"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "mobuildingblocks:block/column_top",
+  "textures": {
+    "texture": "minecraft:block/obsidian",
+    "particle": "minecraft:block/obsidian"
+  }
+}

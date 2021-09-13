@@ -4,6 +4,7 @@ import com.teamarcanum.mobuildingblocks.MoBuildingBlocks;
 import com.teamarcanum.mobuildingblocks.data.BlockStateProvider;
 import com.teamarcanum.mobuildingblocks.data.IBlockDataContainer;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.Tag;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.SnowLayerBlock;
@@ -16,28 +17,35 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.client.model.generators.ModelProvider;
 import net.minecraftforge.client.model.generators.VariantBlockStateBuilder;
 
 import javax.annotation.Nonnull;
 import java.util.Objects;
 
 @SuppressWarnings("deprecation")
-public class LayerBlock extends SnowLayerBlock implements IBlockDataContainer, SimpleWaterloggedBlock {
+public class LayerBlock extends SnowLayerBlock implements IBlockDataContainer, SimpleWaterloggedBlock, ITagHolder<Block> {
 
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
     private final Block source;
+    private final Tag.Named<Block>[] tags;
 
-    public LayerBlock(Block _source) {
+    public LayerBlock(Block _source, Tag.Named<Block>[] _tags) {
 
         super(BlockBehaviour.Properties.copy(_source));
 
         this.source = _source;
+        this.tags = _tags;
         this.registerDefaultState(this.getStateDefinition().any().setValue(LAYERS, 1).setValue(WATERLOGGED, false));
     }
 
-    public Block getSource() {
+    @Override
+    public Tag.Named<Block>[] tags() {
+
+        return this.tags;
+    }
+
+    public Block source() {
 
         return source;
     }
@@ -63,19 +71,12 @@ public class LayerBlock extends SnowLayerBlock implements IBlockDataContainer, S
 
         VariantBlockStateBuilder builder = _provider.getVariantBuilder(this);
         for(int height = 1; height <= 8; height++) {
-            if(height == 8) {
-                builder.partialState().with(BlockStateProperties.LAYERS, height).addModels(
-                        new ConfiguredModel(_provider.models().cubeAll(registryName.getPath() + "_layer" + height, new ResourceLocation(ModelProvider.BLOCK_FOLDER + "/" + registryName.getPath())))
-                );
-            } else {
-                builder.partialState().with(BlockStateProperties.LAYERS, height).addModels(
-                        new ConfiguredModel(_provider.models()
-                                                    .withExistingParent(registryName.getPath() + "_layer" + (height == 1 ? "" : Integer.toString(height)), new ResourceLocation("minecraft", "snow_height" + 2 * height))
-                                                    .texture("texture", textureLoc)
-                                                    .texture("particle", textureLoc)
-                        )
-                );
-            }
+
+            builder.partialState().with(BlockStateProperties.LAYERS, height).addModels(
+                    new ConfiguredModel(_provider.models()
+                                                .withExistingParent(registryName.getPath() + "_layer" + (height == 1 ? "" : Integer.toString(height)), MoBuildingBlocks.rl("layer" + height))
+                                                .texture("all", textureLoc)
+                    ));
         }
     }
 
@@ -88,9 +89,10 @@ public class LayerBlock extends SnowLayerBlock implements IBlockDataContainer, S
     @Override
     public void generateItem(BlockStateProvider _provider) {
 
-        _provider.simpleBlockItem(this,
-                                  new ModelFile.ExistingModelFile(
-                                          new ResourceLocation(MoBuildingBlocks.MODID, "block/" + Objects.requireNonNull(getRegistryName()).getPath()),
-                                          _provider.itemModels().existingFileHelper));
+        _provider.simpleBlockItem(
+                this,
+                new ModelFile.ExistingModelFile(
+                        new ResourceLocation(MoBuildingBlocks.MODID, "block/" + Objects.requireNonNull(getRegistryName()).getPath()),
+                        _provider.itemModels().existingFileHelper));
     }
 }
