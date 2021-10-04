@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "pillar_state=top,waterlogged=false": {
+      "model": "mobuildingblocks:block/polished_blackstone_bricks_pillar_top"
+    },
+    "pillar_state=center,waterlogged=false": {
+      "model": "mobuildingblocks:block/polished_blackstone_bricks_pillar_center"
+    },
+    "pillar_state=bottom,waterlogged=false": {
+      "model": "mobuildingblocks:block/polished_blackstone_bricks_pillar_bottom"
+    },
+    "pillar_state=top,waterlogged=true": {
+      "model": "mobuildingblocks:block/polished_blackstone_bricks_pillar_top"
+    },
+    "pillar_state=center,waterlogged=true": {
+      "model": "mobuildingblocks:block/polished_blackstone_bricks_pillar_center"
+    },
+    "pillar_state=bottom,waterlogged=true": {
+      "model": "mobuildingblocks:block/polished_blackstone_bricks_pillar_bottom"
+    }
+  }
+}

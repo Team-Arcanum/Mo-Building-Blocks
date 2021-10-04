@@ -1,7 +1,0 @@
-{
-  "parent": "mobuildingblocks:block/column",
-  "textures": {
-    "texture": "minecraft:block/spruce_planks",
-    "particle": "minecraft:block/spruce_planks"
-  }
-}

@@ -1,5 +1,5 @@
 {
-  "parent": "mobuildingblocks:block/column",
+  "parent": "mobuildingblocks:block/pillar",
   "textures": {
     "texture": "minecraft:block/magenta_concrete",
     "particle": "minecraft:block/magenta_concrete"

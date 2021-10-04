@@ -1,5 +1,5 @@
 {
-  "parent": "mobuildingblocks:block/column_bottom",
+  "parent": "mobuildingblocks:block/pillar_bottom",
   "textures": {
     "texture": "minecraft:block/lime_concrete",
     "particle": "minecraft:block/lime_concrete"

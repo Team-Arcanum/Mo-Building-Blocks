@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:spruce_planks"
-  },
-  "result": "mobuildingblocks:spruce_planks_wall",
-  "count": 1
-}

@@ -1,0 +1,7 @@
+{
+  "parent": "mobuildingblocks:block/pillar_top",
+  "textures": {
+    "texture": "minecraft:block/polished_deepslate",
+    "particle": "minecraft:block/polished_deepslate"
+  }
+}

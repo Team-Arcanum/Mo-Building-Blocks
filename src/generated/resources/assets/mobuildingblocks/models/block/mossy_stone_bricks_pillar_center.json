@@ -1,0 +1,7 @@
+{
+  "parent": "mobuildingblocks:block/pillar",
+  "textures": {
+    "texture": "minecraft:block/mossy_stone_bricks",
+    "particle": "minecraft:block/mossy_stone_bricks"
+  }
+}

@@ -5,7 +5,7 @@ license="MIT"
 
 [[mods]] #mandatory
     modId="mobuildingblocks"
-    version="1.1.0"
+    version="1.2.2"
     displayName="Mo' Building Blocks"
     updateJSONURL=""
     displayURL=""

@@ -26,6 +26,12 @@ public class StandardRecipeProvider extends RecipeProvider {
         Blocks.registerStandardRecipes(_recipeConsumer);
     }
 
+    public static void buttonRecipe(Consumer<FinishedRecipe> _recipeConsumer, ItemLike _output, ItemLike _input) {
+
+        ShapelessRecipeBuilder.shapeless(_output).requires(_input)
+                .unlockedBy(RegistryNameUtils.getHasName(_input), has(_input)).save(_recipeConsumer);
+    }
+
     public static void layerRecipe(Consumer<FinishedRecipe> _recipeConsumer, ItemLike _output, ItemLike _input) {
 
         ShapelessRecipeBuilder.shapeless(_output, 8).requires(_input)

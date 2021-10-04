@@ -1,0 +1,7 @@
+{
+  "parent": "mobuildingblocks:block/pillar",
+  "textures": {
+    "texture": "minecraft:block/jungle_planks",
+    "particle": "minecraft:block/jungle_planks"
+  }
+}

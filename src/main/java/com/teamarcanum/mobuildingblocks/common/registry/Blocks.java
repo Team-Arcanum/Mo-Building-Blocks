@@ -9,6 +9,8 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.Tag;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -113,14 +115,17 @@ public class Blocks {
     public static final List<MultiRegistryObject> MULTI_REGISTRY_OBJECTS = new ArrayList<>();
     public static final List<RegistryObject<LayerBlock>> LAYER_BLOCKS = new ArrayList<>();
     public static final List<RegistryObject<PillarBlock>> PILLAR_BLOCKS = new ArrayList<>();
+    public static final List<RegistryObject<ButtonBlock>> BUTTON_BLOCKS = new ArrayList<>();
 
     public static final MultiRegistryObject CALCITE = registerObject("calcite", net.minecraft.world.level.block.Blocks.CALCITE, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_STONE_TOOL);
     public static final MultiRegistryObject AMETHYST = registerObject("amethyst", net.minecraft.world.level.block.Blocks.AMETHYST_BLOCK, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_STONE_TOOL);
     public static final MultiRegistryObject DEEPSLATE = registerObject("deepslate", net.minecraft.world.level.block.Blocks.DEEPSLATE, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_STONE_TOOL);
     public static final MultiRegistryObject GILDED_BLACKSTONE = registerObject("gilded_blackstone", net.minecraft.world.level.block.Blocks.GILDED_BLACKSTONE, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_STONE_TOOL);
+    public static final MultiRegistryObject CRACKED_POLISHED_BLACKSTONE_BRICKS = registerObject("cracked_polished_blackstone_bricks", net.minecraft.world.level.block.Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_STONE_TOOL);
     public static final MultiRegistryObject TUFF = registerObject("tuff", net.minecraft.world.level.block.Blocks.TUFF, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_STONE_TOOL);
     public static final MultiRegistryObject SMOOTH_BASALT = registerObject("smooth_basalt", net.minecraft.world.level.block.Blocks.SMOOTH_BASALT, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_STONE_TOOL);
     public static final MultiRegistryObject SMOOTH_STONE = registerObject("smooth_stone", net.minecraft.world.level.block.Blocks.SMOOTH_STONE, true, false, true, true, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_STONE_TOOL);
+    public static final MultiRegistryObject CRACKED_STONE_BRICKS = registerObject("cracked_stone_bricks", net.minecraft.world.level.block.Blocks.CRACKED_STONE_BRICKS, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_STONE_TOOL);
 
     public static final MultiRegistryObject WHITE_CONCRETE = registerObject("white_concrete", net.minecraft.world.level.block.Blocks.WHITE_CONCRETE, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_STONE_TOOL);
     public static final MultiRegistryObject ORANGE_CONCRETE = registerObject("orange_concrete", net.minecraft.world.level.block.Blocks.ORANGE_CONCRETE, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_STONE_TOOL);
@@ -155,12 +160,6 @@ public class Blocks {
     public static final MultiRegistryObject GREEN_TERRACOTTA = registerObject("green_terracotta", net.minecraft.world.level.block.Blocks.GREEN_TERRACOTTA, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_STONE_TOOL);
     public static final MultiRegistryObject RED_TERRACOTTA = registerObject("red_terracotta", net.minecraft.world.level.block.Blocks.RED_TERRACOTTA, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_STONE_TOOL);
     public static final MultiRegistryObject BLACK_TERRACOTTA = registerObject("black_terracotta", net.minecraft.world.level.block.Blocks.BLACK_TERRACOTTA, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_STONE_TOOL);
-    public static final MultiRegistryObject OAK_PLANKS = registerObject("oak_planks", net.minecraft.world.level.block.Blocks.OAK_PLANKS, false, false, true, true, BlockTags.MINEABLE_WITH_AXE);
-    public static final MultiRegistryObject BIRCH_PLANKS = registerObject("birch_planks", net.minecraft.world.level.block.Blocks.BIRCH_PLANKS, false, false, true, true, BlockTags.MINEABLE_WITH_AXE);
-    public static final MultiRegistryObject SPRUCE_PLANKS = registerObject("spruce_planks", net.minecraft.world.level.block.Blocks.SPRUCE_PLANKS, false, false, true, true, BlockTags.MINEABLE_WITH_AXE);
-    public static final MultiRegistryObject JUNGLE_PLANKS = registerObject("jungle_planks", net.minecraft.world.level.block.Blocks.JUNGLE_PLANKS, false, false, true, true, BlockTags.MINEABLE_WITH_AXE);
-    public static final MultiRegistryObject DARK_OAK_PLANKS = registerObject("dark_oak_planks", net.minecraft.world.level.block.Blocks.DARK_OAK_PLANKS, false, false, true, true, BlockTags.MINEABLE_WITH_AXE);
-    public static final MultiRegistryObject ACACIA_PLANKS = registerObject("acacia_planks", net.minecraft.world.level.block.Blocks.ACACIA_PLANKS, false, false, true, true, BlockTags.MINEABLE_WITH_AXE);
 
     public static final RegistryObject<LayerBlock> SAND_LAYER = registerLayer("sand_layer", net.minecraft.world.level.block.Blocks.SAND, BlockTags.MINEABLE_WITH_SHOVEL);
     public static final RegistryObject<LayerBlock> DIRT_LAYER = registerLayer("dirt_layer", net.minecraft.world.level.block.Blocks.DIRT, BlockTags.MINEABLE_WITH_SHOVEL);
@@ -175,10 +174,35 @@ public class Blocks {
     public static final RegistryObject<LayerBlock> ACACIA_LEAVES_LAYER = registerLayer("acacia_leaves_layer", net.minecraft.world.level.block.Blocks.ACACIA_LEAVES, BlockTags.MINEABLE_WITH_HOE);
 
     public static final RegistryObject<PillarBlock> STONE_PILLAR = registerPillar("stone_pillar", net.minecraft.world.level.block.Blocks.STONE, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_STONE_TOOL);
+    public static final RegistryObject<PillarBlock> COBBLED_DEEPSLATE_PILLAR = registerPillar("cobbled_deepslate_pillar", net.minecraft.world.level.block.Blocks.COBBLED_DEEPSLATE, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_STONE_TOOL);
+    public static final RegistryObject<PillarBlock> POLISHED_DEEPSLATE_PILLAR = registerPillar("polished_deepslate_pillar", net.minecraft.world.level.block.Blocks.POLISHED_DEEPSLATE, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_STONE_TOOL);
+    public static final RegistryObject<PillarBlock> DEEPSLATE_BRICKS_PILLAR = registerPillar("deepslate_bricks_pillar", net.minecraft.world.level.block.Blocks.DEEPSLATE_BRICKS, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_STONE_TOOL);
+    public static final RegistryObject<PillarBlock> DEEPSLATE_TILES_PILLAR = registerPillar("deepslate_tiles_pillar", net.minecraft.world.level.block.Blocks.DEEPSLATE_TILES, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_STONE_TOOL);
+    public static final RegistryObject<PillarBlock> BLACKSTONE = registerPillar("blackstone_pillar", net.minecraft.world.level.block.Blocks.BLACKSTONE, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_STONE_TOOL);
+    public static final RegistryObject<PillarBlock> POLISHED_BLACKSTONE_PILLAR = registerPillar("polished_blackstone_pillar", net.minecraft.world.level.block.Blocks.POLISHED_BLACKSTONE, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_STONE_TOOL);
+    public static final RegistryObject<PillarBlock> POLISHED_BLACKSTONE_BRICKS_PILLAR = registerPillar("polished_blackstone_bricks_pillar", net.minecraft.world.level.block.Blocks.POLISHED_BLACKSTONE_BRICKS, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_STONE_TOOL);
     public static final RegistryObject<PillarBlock> COBBLESTONE_PILLAR = registerPillar("cobblestone_pillar", net.minecraft.world.level.block.Blocks.COBBLESTONE, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_STONE_TOOL);
     public static final RegistryObject<PillarBlock> STONE_BRICKS_PILLAR = registerPillar("stone_bricks_pillar", net.minecraft.world.level.block.Blocks.STONE_BRICKS, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_STONE_TOOL);
+    public static final RegistryObject<PillarBlock> MOSSY_STONE_BRICKS_PILLAR = registerPillar("mossy_stone_bricks_pillar", net.minecraft.world.level.block.Blocks.MOSSY_STONE_BRICKS, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_STONE_TOOL);
     public static final RegistryObject<PillarBlock> QUARTZ_BRICKS_PILLAR = registerPillar("quartz_bricks_pillar", net.minecraft.world.level.block.Blocks.QUARTZ_BRICKS, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_STONE_TOOL);
     public static final RegistryObject<PillarBlock> OBSIDIAN_PILLAR = registerPillar("obsidian_pillar", net.minecraft.world.level.block.Blocks.OBSIDIAN, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_DIAMOND_TOOL);
+    public static final RegistryObject<PillarBlock> OAK_PLANKS = registerPillar("oak_planks_pillar", net.minecraft.world.level.block.Blocks.OAK_PLANKS, BlockTags.MINEABLE_WITH_AXE);
+    public static final RegistryObject<PillarBlock> BIRCH_PLANKS = registerPillar("birch_planks_pillar", net.minecraft.world.level.block.Blocks.BIRCH_PLANKS, BlockTags.MINEABLE_WITH_AXE);
+    public static final RegistryObject<PillarBlock> SPRUCE_PLANKS = registerPillar("spruce_planks_pillar", net.minecraft.world.level.block.Blocks.SPRUCE_PLANKS, BlockTags.MINEABLE_WITH_AXE);
+    public static final RegistryObject<PillarBlock> JUNGLE_PLANKS = registerPillar("jungle_planks_pillar", net.minecraft.world.level.block.Blocks.JUNGLE_PLANKS, BlockTags.MINEABLE_WITH_AXE);
+    public static final RegistryObject<PillarBlock> DARK_OAK_PLANKS = registerPillar("dark_oak_planks_pillar", net.minecraft.world.level.block.Blocks.DARK_OAK_PLANKS, BlockTags.MINEABLE_WITH_AXE);
+    public static final RegistryObject<PillarBlock> ACACIA_PLANKS = registerPillar("acacia_planks_pillar", net.minecraft.world.level.block.Blocks.ACACIA_PLANKS, BlockTags.MINEABLE_WITH_AXE);
+
+    public static final RegistryObject<ButtonBlock> COPPER_BUTTON = registerButton("copper_button", net.minecraft.world.level.block.Blocks.COPPER_BLOCK, Items.COPPER_INGOT, BlockTags.MINEABLE_WITH_PICKAXE);
+
+    @SafeVarargs
+    private static RegistryObject<ButtonBlock> registerButton(String _name, Block _block, ItemLike _ingredient, Tag.Named<Block>... _tags) {
+
+        RegistryObject<ButtonBlock> buttonBlock = BLOCKS.register(_name, () -> new ButtonBlock(_block, _ingredient, _tags));
+        BUTTON_BLOCKS.add(buttonBlock);
+
+        return buttonBlock;
+    }
 
     @SafeVarargs
     private static RegistryObject<PillarBlock> registerPillar(String _name, Block _block, Tag.Named<Block>... _tags) {
@@ -282,6 +306,12 @@ public class Blocks {
             PillarBlock block = registryObject.get();
             _loot.dropSelf(block);
         }
+
+        for(RegistryObject<ButtonBlock> registryObject : BUTTON_BLOCKS) {
+
+            ButtonBlock block = registryObject.get();
+            _loot.dropSelf(block);
+        }
     }
 
     @ParametersAreNonnullByDefault
@@ -295,6 +325,11 @@ public class Blocks {
         for(RegistryObject<LayerBlock> registryObject : LAYER_BLOCKS) {
 
             StandardRecipeProvider.layerRecipe(_recipeConsumer, registryObject.get(), registryObject.get().source());
+        }
+
+        for(RegistryObject<ButtonBlock> registryObject : BUTTON_BLOCKS) {
+
+            StandardRecipeProvider.buttonRecipe(_recipeConsumer, registryObject.get(), registryObject.get().ingredient());
         }
     }
 

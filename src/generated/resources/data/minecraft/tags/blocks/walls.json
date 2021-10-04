@@ -5,9 +5,11 @@
     "mobuildingblocks:amethyst_wall",
     "mobuildingblocks:deepslate_wall",
     "mobuildingblocks:gilded_blackstone_wall",
+    "mobuildingblocks:cracked_polished_blackstone_bricks_wall",
     "mobuildingblocks:tuff_wall",
     "mobuildingblocks:smooth_basalt_wall",
     "mobuildingblocks:smooth_stone_wall",
+    "mobuildingblocks:cracked_stone_bricks_wall",
     "mobuildingblocks:white_concrete_wall",
     "mobuildingblocks:orange_concrete_wall",
     "mobuildingblocks:magenta_concrete_wall",
@@ -39,12 +41,6 @@
     "mobuildingblocks:brown_terracotta_wall",
     "mobuildingblocks:green_terracotta_wall",
     "mobuildingblocks:red_terracotta_wall",
-    "mobuildingblocks:black_terracotta_wall",
-    "mobuildingblocks:oak_planks_wall",
-    "mobuildingblocks:birch_planks_wall",
-    "mobuildingblocks:spruce_planks_wall",
-    "mobuildingblocks:jungle_planks_wall",
-    "mobuildingblocks:dark_oak_planks_wall",
-    "mobuildingblocks:acacia_planks_wall"
+    "mobuildingblocks:black_terracotta_wall"
   ]
 }

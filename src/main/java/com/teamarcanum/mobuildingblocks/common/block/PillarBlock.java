@@ -39,7 +39,7 @@ import java.util.Objects;
 public class PillarBlock extends Block implements IBlockDataContainer, SimpleWaterloggedBlock, ITagHolder<Block> {
 
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-    public static final EnumProperty<PillarState> COLUMN_STATE = EnumProperty.create("column_state", PillarState.class);
+    public static final EnumProperty<PillarState> PILLAR_STATE = EnumProperty.create("pillar_state", PillarState.class);
 
     private final Block source;
     private final Tag.Named<Block>[] tags;
@@ -50,7 +50,7 @@ public class PillarBlock extends Block implements IBlockDataContainer, SimpleWat
 
         this.tags = _tags;
         this.source = _block;
-        this.registerDefaultState(this.getStateDefinition().any().setValue(WATERLOGGED, false).setValue(COLUMN_STATE, PillarState.CENTER));
+        this.registerDefaultState(this.getStateDefinition().any().setValue(WATERLOGGED, false).setValue(PILLAR_STATE, PillarState.CENTER));
     }
 
     @Override
@@ -62,7 +62,7 @@ public class PillarBlock extends Block implements IBlockDataContainer, SimpleWat
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block,BlockState> _container) {
 
-        _container.add(WATERLOGGED, COLUMN_STATE);
+        _container.add(WATERLOGGED, PILLAR_STATE);
     }
 
     @Nonnull
@@ -98,13 +98,13 @@ public class PillarBlock extends Block implements IBlockDataContainer, SimpleWat
 
         if(hasUp) {
             if(hasDown) {
-                return this.defaultBlockState().setValue(COLUMN_STATE, PillarState.CENTER);
+                return this.defaultBlockState().setValue(PILLAR_STATE, PillarState.CENTER);
             }
-            return this.defaultBlockState().setValue(COLUMN_STATE, PillarState.BOTTOM);
+            return this.defaultBlockState().setValue(PILLAR_STATE, PillarState.BOTTOM);
         } else if(hasDown) {
-            return this.defaultBlockState().setValue(COLUMN_STATE, PillarState.TOP);
+            return this.defaultBlockState().setValue(PILLAR_STATE, PillarState.TOP);
         }
-        return this.defaultBlockState().setValue(COLUMN_STATE, PillarState.CENTER);
+        return this.defaultBlockState().setValue(PILLAR_STATE, PillarState.TOP);
     }
 
     @Override
@@ -112,7 +112,7 @@ public class PillarBlock extends Block implements IBlockDataContainer, SimpleWat
     @Nonnull
     public VoxelShape getShape(BlockState _state, BlockGetter _getter, BlockPos _pos, CollisionContext _context) {
 
-        PillarState columnState = _state.getValue(COLUMN_STATE);
+        PillarState columnState = _state.getValue(PILLAR_STATE);
         return getYShape(columnState);
     }
 
@@ -154,7 +154,7 @@ public class PillarBlock extends Block implements IBlockDataContainer, SimpleWat
 
         _provider.simpleBlockItem(
                 this,
-                _provider.models().withExistingParent(columnRegistryName.toString() + "_center", MoBuildingBlocks.rl(ModelProvider.BLOCK_FOLDER + "/column")));
+                _provider.models().withExistingParent(columnRegistryName.toString() + "_center", MoBuildingBlocks.rl(ModelProvider.BLOCK_FOLDER + "/pillar")));
     }
 
     @Override
@@ -162,13 +162,13 @@ public class PillarBlock extends Block implements IBlockDataContainer, SimpleWat
 
         ResourceLocation registryName = Objects.requireNonNull(this.source.getRegistryName());
         ResourceLocation columnRegistryName = Objects.requireNonNull(getRegistryName());
-        ResourceLocation textureLoc = new ResourceLocation("block/" + registryName.getPath().replaceAll("_column", ""));
+        ResourceLocation textureLoc = new ResourceLocation("block/" + registryName.getPath().replaceAll("_pillar", ""));
 
         VariantBlockStateBuilder builder = _provider.getVariantBuilder(this);
 
         builder.forAllStates(_blockState -> {
 
-            PillarState pillarState = _blockState.getValue(COLUMN_STATE);
+            PillarState pillarState = _blockState.getValue(PILLAR_STATE);
 
             return new ConfiguredModel[]{
                     new ConfiguredModel(
@@ -182,9 +182,9 @@ public class PillarBlock extends Block implements IBlockDataContainer, SimpleWat
 
     public enum PillarState implements StringRepresentable {
 
-        TOP("top", "column_top"),
-        CENTER("center", "column"),
-        BOTTOM("bottom", "column_bottom");
+        TOP("top", "pillar_top"),
+        CENTER("center", "pillar"),
+        BOTTOM("bottom", "pillar_bottom");
 
         private final String name;
         private final String modelId;

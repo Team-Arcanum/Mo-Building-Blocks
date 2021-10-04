@@ -1,21 +1,21 @@
 {
   "variants": {
-    "column_state=top,waterlogged=false": {
+    "pillar_state=top,waterlogged=false": {
       "model": "mobuildingblocks:block/tuff_column_top"
     },
-    "column_state=center,waterlogged=false": {
+    "pillar_state=center,waterlogged=false": {
       "model": "mobuildingblocks:block/tuff_column_center"
     },
-    "column_state=bottom,waterlogged=false": {
+    "pillar_state=bottom,waterlogged=false": {
       "model": "mobuildingblocks:block/tuff_column_bottom"
     },
-    "column_state=top,waterlogged=true": {
+    "pillar_state=top,waterlogged=true": {
       "model": "mobuildingblocks:block/tuff_column_top"
     },
-    "column_state=center,waterlogged=true": {
+    "pillar_state=center,waterlogged=true": {
       "model": "mobuildingblocks:block/tuff_column_center"
     },
-    "column_state=bottom,waterlogged=true": {
+    "pillar_state=bottom,waterlogged=true": {
       "model": "mobuildingblocks:block/tuff_column_bottom"
     }
   }

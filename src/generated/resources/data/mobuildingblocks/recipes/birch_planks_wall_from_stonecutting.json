@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:birch_planks"
-  },
-  "result": "mobuildingblocks:birch_planks_wall",
-  "count": 1
-}
