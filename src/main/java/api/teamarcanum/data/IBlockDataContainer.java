@@ -1,4 +1,6 @@
-package com.teamarcanum.mobuildingblocks.data;
+package api.teamarcanum.data;
+
+import com.teamarcanum.mobuildingblocks.data.BlockStateProvider;
 
 public interface IBlockDataContainer {
 

@@ -1,4 +1,4 @@
-package com.teamarcanum.mobuildingblocks.common.utils;
+package api.teamarcanum.common.utils;
 
 import org.apache.maven.artifact.versioning.ArtifactVersion;
 

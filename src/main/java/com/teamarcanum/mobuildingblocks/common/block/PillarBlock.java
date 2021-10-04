@@ -1,8 +1,9 @@
 package com.teamarcanum.mobuildingblocks.common.block;
 
+import api.teamarcanum.common.block.ITagHolder;
 import com.teamarcanum.mobuildingblocks.MoBuildingBlocks;
 import com.teamarcanum.mobuildingblocks.data.BlockStateProvider;
-import com.teamarcanum.mobuildingblocks.data.IBlockDataContainer;
+import api.teamarcanum.data.IBlockDataContainer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;

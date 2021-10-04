@@ -1,8 +1,9 @@
 package com.teamarcanum.mobuildingblocks.common.block;
 
+import api.teamarcanum.common.block.ITagHolder;
 import com.teamarcanum.mobuildingblocks.MoBuildingBlocks;
 import com.teamarcanum.mobuildingblocks.data.BlockStateProvider;
-import com.teamarcanum.mobuildingblocks.data.IBlockDataContainer;
+import api.teamarcanum.data.IBlockDataContainer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.Tag;
 import net.minecraft.world.level.block.Block;

@@ -1,4 +1,4 @@
-package com.teamarcanum.mobuildingblocks.common.block;
+package api.teamarcanum.common.block;
 
 import net.minecraft.tags.Tag;
 

@@ -1,5 +1,4 @@
-package com.teamarcanum.mobuildingblocks.data;
-
+package api.teamarcanum.data;
 
 import net.minecraft.core.Registry;
 import net.minecraft.tags.Tag;

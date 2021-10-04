@@ -1,5 +1,6 @@
 package com.teamarcanum.mobuildingblocks.data;
 
+import api.teamarcanum.data.IBlockDataContainer;
 import com.teamarcanum.mobuildingblocks.MoBuildingBlocks;
 import com.teamarcanum.mobuildingblocks.common.registry.Blocks;
 import net.minecraft.data.DataGenerator;
