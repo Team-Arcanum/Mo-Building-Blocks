@@ -72,7 +72,7 @@ public class PillarBlock extends Block implements Waterloggable, IIdentifierProv
 
         assert tag != null;
         boolean hasUp = tag.contains(_level.getBlockState(_pos.up()).getBlock());
-        boolean hasDown = tag.contains(_level.getBlockState(_pos.up()).getBlock());
+        boolean hasDown = tag.contains(_level.getBlockState(_pos.down()).getBlock());
 
         if(hasUp) {
             if(hasDown) {
@@ -86,9 +86,9 @@ public class PillarBlock extends Block implements Waterloggable, IIdentifierProv
     }
 
     @Override
-    public VoxelShape getCollisionShape(BlockState _state, BlockView _getter, BlockPos _pos, ShapeContext _context) {
-        PillarState columnState = _state.get(PILLAR_STATE);
-        return getYShape(columnState);
+    public VoxelShape getOutlineShape(BlockState _state, BlockView _world, BlockPos _pos, ShapeContext _context) {
+        PillarState state = _state.get(PILLAR_STATE);
+        return getYShape(state);
     }
 
     private VoxelShape getYShape(PillarState _pillarState) {
