@@ -193,5 +193,5 @@
   "block.mobuildingblocks.yellow_terracotta_slab": "Yellow Terracotta Slab",
   "block.mobuildingblocks.yellow_terracotta_stairs": "Yellow Terracotta Stairs",
   "block.mobuildingblocks.yellow_terracotta_wall": "Yellow Terracotta Wall",
-  "itemGroup.mobuildingblocks": "Mo' Building Blocks"
+  "itemGroup.mobuildingblocks.general": "Mo' Building Blocks"
 }

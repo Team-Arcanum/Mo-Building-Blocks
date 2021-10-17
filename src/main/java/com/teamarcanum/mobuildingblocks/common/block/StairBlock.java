@@ -1,37 +1,22 @@
 package com.teamarcanum.mobuildingblocks.common.block;
 
-import api.teamarcanum.common.block.ITagHolder;
-import com.teamarcanum.mobuildingblocks.data.BlockStateProvider;
-import api.teamarcanum.data.IBlockDataContainer;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.Tag;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockBehaviour;
+import com.teamarcanum.mobuildingblocks.MoBuildingBlocks;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.block.Block;
+import net.minecraft.block.StairsBlock;
+import net.minecraft.util.Identifier;
 
-import java.util.Objects;
+public class StairBlock extends StairsBlock implements IIdentifierProvider {
+    private final String id;
 
-public class StairBlock extends net.minecraft.world.level.block.StairBlock implements IBlockDataContainer, ITagHolder<Block> {
+    public StairBlock(String _id, Block _block) {
 
-    private final Block source;
-    private final Tag.Named<Block>[] tags;
+        super(_block.getDefaultState(), FabricBlockSettings.copy(_block));
 
-    public StairBlock(Block _block, Tag.Named<Block>[] _tags) {
-
-        super(_block::defaultBlockState, BlockBehaviour.Properties.copy(_block));
-
-        this.source = _block;
-        this.tags = _tags;
+        this.id = _id;
     }
 
-    @Override
-    public Tag.Named<Block>[] tags() {
-
-        return this.tags;
-    }
-
-    @Override
-    public void generateData(BlockStateProvider _provider) {
-
-        _provider.stairsBlock(this, new ResourceLocation("block/" + Objects.requireNonNull(this.source.getRegistryName()).getPath()));
+    public Identifier id() {
+        return new Identifier(MoBuildingBlocks.MODID, id);
     }
 }

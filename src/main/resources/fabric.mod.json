@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "mobuildingblocks",
+  "version": "${version}",
+
+  "name": "Mo' Building Blocks",
+  "description": "",
+  "authors": [
+    "Team Arcanum"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": ""
+  },
+
+  "license": "CC0-1.0",
+  "icon": "",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.teamarcanum.mobuildingblocks.MoBuildingBlocks"
+    ]
+  },
+  "mixins": [],
+
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": "1.17.x",
+    "java": ">=16"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

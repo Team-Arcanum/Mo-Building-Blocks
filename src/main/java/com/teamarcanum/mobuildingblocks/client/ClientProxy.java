@@ -1,43 +1,34 @@
 package com.teamarcanum.mobuildingblocks.client;
 
-import com.teamarcanum.mobuildingblocks.MoBuildingBlocks;
 import com.teamarcanum.mobuildingblocks.common.registry.Blocks;
-import net.minecraft.client.Minecraft;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+import net.minecraft.block.BlockState;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.color.block.BlockColors;
-import net.minecraft.client.color.item.ItemColors;
-import net.minecraft.client.renderer.BiomeColors;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.level.FoliageColor;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraft.client.color.world.BiomeColors;
+import net.minecraft.client.color.world.FoliageColors;
+import net.minecraft.client.render.RenderLayer;
+import net.minecraft.item.BlockItem;
 
-@Mod.EventBusSubscriber(modid = MoBuildingBlocks.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientProxy {
 
-    @SubscribeEvent
-    public static void setup(final FMLClientSetupEvent event) {
+    public static void load() {
+        ColorProviderRegistry.BLOCK.register((_state, _tint, _pos, _i) -> FoliageColors.getSpruceColor(), Blocks.SPRUCE_LEAVES_LAYER);
+        ColorProviderRegistry.BLOCK.register((_state, _tint, _pos, _i) -> FoliageColors.getBirchColor(), Blocks.BIRCH_LEAVES_LAYER);
+        ColorProviderRegistry.BLOCK.register((_state, _tint, _pos, _i) -> _tint != null && _pos != null ? BiomeColors.getFoliageColor(_tint, _pos) : FoliageColors.getDefaultColor(), Blocks.OAK_LEAVES_LAYER, Blocks.JUNGLE_LEAVES_LAYER, Blocks.ACACIA_LEAVES_LAYER, Blocks.DARK_OAK_LEAVES_LAYER);
 
-        BlockColors blockColors = Minecraft.getInstance().getBlockColors();
-        blockColors.register((_state, _tint, _pos, _i) -> FoliageColor.getEvergreenColor(), Blocks.SPRUCE_LEAVES_LAYER.get());
-        blockColors.register((_state, _tint, _pos, _i) -> FoliageColor.getBirchColor(), Blocks.BIRCH_LEAVES_LAYER.get());
-        blockColors.register((_state, _tint, _pos, _i) -> _tint != null && _pos != null ? BiomeColors.getAverageFoliageColor(_tint, _pos) : FoliageColor.getDefaultColor(), Blocks.OAK_LEAVES_LAYER.get(), Blocks.JUNGLE_LEAVES_LAYER.get(), Blocks.ACACIA_LEAVES_LAYER.get(), Blocks.DARK_OAK_LEAVES_LAYER.get());
-
-        ItemColors itemColors = Minecraft.getInstance().getItemColors();
-        itemColors.register((_stack, _i) -> {
-            BlockState blockstate = ((BlockItem)_stack.getItem()).getBlock().defaultBlockState();
+        ColorProviderRegistry.ITEM.register((_stack, _i) -> {
+            BlockColors blockColors = MinecraftClient.getInstance().getBlockColors();
+            BlockState blockstate = ((BlockItem)_stack.getItem()).getBlock().getDefaultState();
             return blockColors.getColor(blockstate, null, null, _i);
-        }, Blocks.OAK_LEAVES_LAYER.get(), Blocks.BIRCH_LEAVES_LAYER.get(), Blocks.SPRUCE_LEAVES_LAYER.get(), Blocks.JUNGLE_LEAVES_LAYER.get(), Blocks.DARK_OAK_LEAVES_LAYER.get(), Blocks.ACACIA_LEAVES_LAYER.get());
+        }, Blocks.OAK_LEAVES_LAYER, Blocks.BIRCH_LEAVES_LAYER, Blocks.SPRUCE_LEAVES_LAYER, Blocks.JUNGLE_LEAVES_LAYER, Blocks.DARK_OAK_LEAVES_LAYER, Blocks.ACACIA_LEAVES_LAYER);
 
-        ItemBlockRenderTypes.setRenderLayer(Blocks.OAK_LEAVES_LAYER.get(), RenderType.cutoutMipped());
-        ItemBlockRenderTypes.setRenderLayer(Blocks.BIRCH_LEAVES_LAYER.get(), RenderType.cutoutMipped());
-        ItemBlockRenderTypes.setRenderLayer(Blocks.SPRUCE_LEAVES_LAYER.get(), RenderType.cutoutMipped());
-        ItemBlockRenderTypes.setRenderLayer(Blocks.JUNGLE_LEAVES_LAYER.get(), RenderType.cutoutMipped());
-        ItemBlockRenderTypes.setRenderLayer(Blocks.DARK_OAK_LEAVES_LAYER.get(), RenderType.cutoutMipped());
-        ItemBlockRenderTypes.setRenderLayer(Blocks.ACACIA_LEAVES_LAYER.get(), RenderType.cutoutMipped());
+        BlockRenderLayerMap.INSTANCE.putBlock(Blocks.OAK_LEAVES_LAYER, RenderLayer.getCutoutMipped());
+        BlockRenderLayerMap.INSTANCE.putBlock(Blocks.BIRCH_LEAVES_LAYER, RenderLayer.getCutoutMipped());
+        BlockRenderLayerMap.INSTANCE.putBlock(Blocks.SPRUCE_LEAVES_LAYER, RenderLayer.getCutoutMipped());
+        BlockRenderLayerMap.INSTANCE.putBlock(Blocks.JUNGLE_LEAVES_LAYER, RenderLayer.getCutoutMipped());
+        BlockRenderLayerMap.INSTANCE.putBlock(Blocks.DARK_OAK_LEAVES_LAYER, RenderLayer.getCutoutMipped());
+        BlockRenderLayerMap.INSTANCE.putBlock(Blocks.ACACIA_LEAVES_LAYER, RenderLayer.getCutoutMipped());
     }
 }

@@ -2,24 +2,13 @@ package com.teamarcanum.mobuildingblocks.client;
 
 import com.teamarcanum.mobuildingblocks.MoBuildingBlocks;
 import com.teamarcanum.mobuildingblocks.common.registry.Blocks;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.ItemStack;
+import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.Identifier;
 
-import javax.annotation.Nonnull;
+public class MoBuildingBlocksCreativeTab {
 
-public class MoBuildingBlocksCreativeTab extends CreativeModeTab {
-
-    public static final MoBuildingBlocksCreativeTab INSTANCE = new MoBuildingBlocksCreativeTab();
-
-    public MoBuildingBlocksCreativeTab() {
-
-        super(MoBuildingBlocks.MODID);
-    }
-
-    @Override
-    @Nonnull
-    public ItemStack makeIcon() {
-
-        return new ItemStack(Blocks.SMOOTH_STONE.stairs.get());
-    }
+    public static final ItemGroup INSTANCE = FabricItemGroupBuilder.build(
+            new Identifier(MoBuildingBlocks.MODID, "general"), () -> new ItemStack(Blocks.SMOOTH_STONE.stairs));
 }

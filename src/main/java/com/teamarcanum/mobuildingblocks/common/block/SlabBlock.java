@@ -1,41 +1,20 @@
 package com.teamarcanum.mobuildingblocks.common.block;
 
-import api.teamarcanum.common.block.ITagHolder;
-import com.teamarcanum.mobuildingblocks.data.BlockStateProvider;
-import api.teamarcanum.data.IBlockDataContainer;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.Tag;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockBehaviour;
+import com.teamarcanum.mobuildingblocks.MoBuildingBlocks;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.block.Block;
+import net.minecraft.util.Identifier;
 
-import java.util.Objects;
+public class SlabBlock extends net.minecraft.block.SlabBlock implements IIdentifierProvider {
+    private final String id;
 
-public class SlabBlock extends net.minecraft.world.level.block.SlabBlock implements IBlockDataContainer, ITagHolder<Block> {
+    public SlabBlock(String _id, Block _block) {
+        super(FabricBlockSettings.copy(_block).strength(1.5F, 6.0F));
 
-    private final Block source;
-    private final Tag.Named<Block>[] tags;
-
-    public SlabBlock(Block _block, Tag.Named<Block>[] _tags) {
-
-        super(BlockBehaviour.Properties.copy(_block)
-                      .strength(1.5F, 6.0F));
-
-        this.source = _block;
-        this.tags = _tags;
+        this.id = _id;
     }
 
-    @Override
-    public Tag.Named<Block>[] tags() {
-
-        return this.tags;
-    }
-
-    @Override
-    public void generateData(BlockStateProvider _provider) {
-
-        _provider.slabBlock(
-                this,
-                this.source.getRegistryName(),
-                new ResourceLocation("block/" + Objects.requireNonNull(this.source.getRegistryName()).getPath()));
+    public Identifier id() {
+        return new Identifier(MoBuildingBlocks.MODID, id);
     }
 }
